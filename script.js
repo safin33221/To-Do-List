@@ -15,8 +15,8 @@ const addList = () => {
 }
 
 const clearAll = () => {
-    document.getElementById('list-container').innerHTML = ``
-    removeToLocalStorages()
+document.getElementById('list-container').innerHTML =``
+removeAllToLocalStorages()
 
 }
 
@@ -32,15 +32,16 @@ const displayList = (text) => {
         <input type="checkbox" class="text-2xl font-semibold">
         <li class='list-none'>${text}</li>
     </div>
-    <button onclick="removeList(this)" class='btn btn-error btn-sm 
+    <button onclick="removeList(this,'${text}')" class='btn btn-error btn-sm 
      justify-end'>Remove</button>
     
     `
     listContainer.appendChild(div)
 }
 
-const removeList = (div) => {
+const removeList = (div,text) => {
     div.parentElement.remove();
+    removeToLocalStorages(text)
 
 }
 
@@ -58,11 +59,31 @@ const saveToLocalStorages = (text) => {
     const listStr = JSON.stringify(list)
     localStorage.setItem('list', listStr)
 }
+
+
 const removeToLocalStorages = (text) => {
+    const list = getSavedList();
+    delete list[text]  
+    const listStr = JSON.stringify(list);
+    localStorage.removeItem('list'); 
+    localStorage.setItem('list', listStr)
+}
+
+
+
+
+
+
+
+
+
+
+
+const removeAllToLocalStorages = (text) => {
     const list = getSavedList()
-    list[text] = text;
+    list[text] = text
     const listStr = JSON.stringify(list)
-    localStorage.removeItem('list', listStr)
+    localStorage.removeItem('list',listStr)
 }
 
 const displayListFormlocalStorages = () => {

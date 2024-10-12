@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+
+</head>
+
+<body class="w-10/12 mx-auto">
+    <div class="my-4     text-center">
+        <h1 class="text-3xl font-bold text-center">Let's Strat your To do List</h1>
+        <p>created by safin </p>
+    </div>
+    
+    <div class="flex justify-end my-4">
+ 
+        <button onclick="clearAll()"  class="btn bnt-error">Clear All</button>
+    </div> 
+    <div id="list-container" class="min-h-[75vh] ">
+        
+        
+    </div>
+    <div class="flex gap-3 justify-center w-full">
+        <input id="text-fild" type="text" !required class=" border-2 p-2 w-full rounded-lg" placeholder="Enter text">
+        <button onclick="addList()" class="btn btn-success">Add</button>
+        
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
